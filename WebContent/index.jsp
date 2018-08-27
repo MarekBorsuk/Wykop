@@ -45,9 +45,9 @@
 	    	<div class="container">
 		      <div class="row bs-callout bs-callout-primary">
 		      	<div class="col col-md-1 col-sm-2">
-		      		<a href="#" class="btn btn-block btn-primary btn-success"><span class="glyphicon glyphicon-arrow-up"></span>  </a>
+		      		<a href="${pageContext.request.contextPath}/vote?discovery_id=${discovery.id}&vote=VOTE_UP" class="btn btn-block btn-primary btn-success"><span class="glyphicon glyphicon-arrow-up"></span>  </a>
 		      		<div class="well well-sm centered"><c:out value="${discovery.upVote - discovery.downVote}" /></div>
-		      		<a href="#" class="btn btn-block btn-primary btn-warning"><span class="glyphicon glyphicon-arrow-down"></span>  </a>
+		      		<a href="${pageContext.request.contextPath}/vote?discovery_id=${discovery.id}&vote=VOTE_DOWN" class="btn btn-block btn-primary btn-warning"><span class="glyphicon glyphicon-arrow-down"></span>  </a>
 		      	</div>
 		        <div class="col col-md-11 col-sm-10">
 		          <h3 class="centered"><a href="<c:out value="${discovery.url}" />"><c:out value="${discovery.name}" /></a></h3>

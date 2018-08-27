@@ -11,6 +11,7 @@ import pl.java.wykop.model.Discovery;
 import pl.java.wykop.model.User;
 
 public class DiscoveryService {
+	
 	public void addDiscovery(String name, String desc, String url, User user) {
 		Discovery discovery = createDiscoveryObject(name, desc, url, user);
 		DAOFactory factory = DAOFactory.getDAOFactory();
@@ -27,6 +28,20 @@ public class DiscoveryService {
 		discovery.setUser(userCopy);
 		discovery.setTimestamp(new Timestamp(new Date().getTime()));
 		return discovery;
+	}
+	
+	public Discovery getDiscoveryById(long discoveryId) {
+		DAOFactory factory = DAOFactory.getDAOFactory();
+		DiscoveryDAO discoveryDAO = factory.getDiscoveryDAO();
+		Discovery discovery = discoveryDAO.read(discoveryId);
+		return discovery;
+	}
+	
+	public boolean updateDiscovery(Discovery discovery) {
+		DAOFactory factory = DAOFactory.getDAOFactory();
+		DiscoveryDAO discoveryDAO = factory.getDiscoveryDAO();
+		boolean result = discoveryDAO.update(discovery);
+		return result;
 	}
 	
 	public List<Discovery> getAllDiscoveries(){
